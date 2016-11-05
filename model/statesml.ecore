@@ -1,3 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="statesml" nsURI="http://www.example.org/statesml" nsPrefix="statesml"/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="statesml" nsURI="http://www.example.org/statesml" nsPrefix="statesml">
+  <eClassifiers xsi:type="ecore:EClass" name="OzobotModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributes" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Events"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NewEClass3"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NewEClass4"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" abstract="true" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attributes"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialState" eSuperTypes="#//State"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TerminalState" eSuperTypes="#//State"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectionDivergence" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectionConvergence" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionCalls"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Edge"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReguralState" eSuperTypes="#//State">
+    <eOperations name="execute">
+      <eParameters name="FunctionCall"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>
