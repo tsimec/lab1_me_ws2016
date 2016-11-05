@@ -33,16 +33,20 @@
     <genClasses ecoreClass="statesml.ecore#//TerminalState"/>
     <genClasses ecoreClass="statesml.ecore#//Event">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//Event/trigger"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//Event/name"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//SelectionDivergence">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//SelectionDivergence/transition"/>
     </genClasses>
-    <genClasses ecoreClass="statesml.ecore#//SelectionConvergence"/>
+    <genClasses ecoreClass="statesml.ecore#//SelectionConvergence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//SelectionConvergence/transition"/>
+    </genClasses>
     <genClasses ecoreClass="statesml.ecore#//FunctionCall">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statesml.ecore#//FunctionCall/parametervalue"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//Edge">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//Edge/node"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//Edge/name"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//Trigger">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//Trigger/transition"/>
@@ -61,5 +65,6 @@
     <genClasses ecoreClass="statesml.ecore#//Constant"/>
     <genClasses ecoreClass="statesml.ecore#//NewEClass21"/>
     <genClasses ecoreClass="statesml.ecore#//NewEClass22"/>
+    <genClasses ecoreClass="statesml.ecore#//ChangeEvent"/>
   </genPackages>
 </genmodel:GenModel>
