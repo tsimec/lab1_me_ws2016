@@ -4,10 +4,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="OzobotModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributes" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="initialstate" lowerBound="1"
-        eType="#//InitialState" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="terminalstate" eType="#//TerminalState"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Events"/>
   <eClassifiers xsi:type="ecore:EClass" name="NewEClass3"/>
@@ -34,16 +30,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelectionDivergence" eSuperTypes="#//Node">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" lowerBound="2"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diverges" lowerBound="2"
         upperBound="-1" eType="#//Transition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelectionConvergence" eSuperTypes="#//Node">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="converges" lowerBound="1"
         upperBound="-1" eType="#//Transition"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionCall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parametervalue" upperBound="-1"
-        eType="#//ParameterValue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Edge">
     <eStructuralFeatures xsi:type="ecore:EReference" name="node" lowerBound="1" upperBound="-1"
@@ -57,22 +49,46 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
         eType="#//Transition" eOpposite="#//Transition/trigger"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ReguralState" eSuperTypes="#//State">
-    <eOperations name="execute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eParameters name="functionCall" eType="#//FunctionCall"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RegularState" eSuperTypes="#//State">
+    <eOperations name="execute" eType="#//DataType">
+      <eParameters name="functionCall"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="functioncall" upperBound="-1"
-        eType="#//FunctionCall" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NewEnum1">
     <eLiterals name="LITERAL0"/>
     <eLiterals name="LITERAL1" value="1"/>
     <eLiterals name="LITERAL2" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataType" eSuperTypes="#//ParameterValue"/>
   <eClassifiers xsi:type="ecore:EClass" name="Constant"/>
   <eClassifiers xsi:type="ecore:EClass" name="NewEClass21"/>
   <eClassifiers xsi:type="ecore:EClass" name="NewEClass22"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeEvent" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemUnit" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
+        eType="#//Function" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//KeyValuePair"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Function">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputParams" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputParams" eType="#//Parameter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//KeyValuePair"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defines" upperBound="-1"
+        eType="#//Function" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyValuePair" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemUnitLibrary" abstract="true"/>
 </ecore:EPackage>
