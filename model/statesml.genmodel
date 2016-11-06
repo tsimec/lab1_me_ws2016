@@ -10,8 +10,11 @@
       <genEnumLiterals ecoreEnumLiteral="statesml.ecore#//NewEnum1/LITERAL1"/>
       <genEnumLiterals ecoreEnumLiteral="statesml.ecore#//NewEnum1/LITERAL2"/>
     </genEnums>
-    <genClasses ecoreClass="statesml.ecore#//OzobotModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//OzobotModel/attributes"/>
+    <genClasses ecoreClass="statesml.ecore#//StatesMLModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statesml.ecore#//StatesMLModel/nodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statesml.ecore#//StatesMLModel/systemunits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statesml.ecore#//StatesMLModel/edges"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statesml.ecore#//StatesMLModel/attributes"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//Events"/>
     <genClasses ecoreClass="statesml.ecore#//NewEClass3"/>
@@ -24,7 +27,6 @@
     <genClasses ecoreClass="statesml.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//Node/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//Node/transition"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//Node/edge"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//Attributes"/>
     <genClasses ecoreClass="statesml.ecore#//InitialState"/>
@@ -40,8 +42,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//SelectionConvergence/converges"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//Edge">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//Edge/node"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//Edge/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//Edge/preceedingNode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//Edge/succeedingNode"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//Trigger">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//Trigger/transition"/>
@@ -51,7 +54,6 @@
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//RegularState">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//RegularState/calls"/>
-      <genOperations ecoreOperation="statesml.ecore#//RegularState/execFunctionsSequential"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//Constant"/>
     <genClasses ecoreClass="statesml.ecore#//NewEClass21"/>
@@ -75,10 +77,15 @@
     </genClasses>
     <genClasses image="false" ecoreClass="statesml.ecore#//KeyValuePair">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//KeyValuePair/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//KeyValuePair/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statesml.ecore#//KeyValuePair/hasType"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//SystemUnitLibrary">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statesml.ecore#//SystemUnitLibrary/unitCollection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//SystemUnitLibrary/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="statesml.ecore#//DataTypeLibrary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statesml.ecore#//DataTypeLibrary/types"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//DataTypeLibrary/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
