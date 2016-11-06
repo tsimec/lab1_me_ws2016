@@ -50,9 +50,9 @@
         eType="#//Transition" eOpposite="#//Transition/trigger"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RegularState" eSuperTypes="#//State">
-    <eOperations name="execute" eType="#//DataType">
-      <eParameters name="functionCall"/>
-    </eOperations>
+    <eOperations name="execFunctionsSequential"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
+        eType="#//Function"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NewEnum1">
     <eLiterals name="LITERAL0"/>
@@ -88,7 +88,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="KeyValuePair" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
+        eType="#//DataType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemUnitLibrary" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemUnitLibrary" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unitCollection" upperBound="-1"
+        eType="#//SystemUnit" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

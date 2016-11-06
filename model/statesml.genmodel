@@ -50,9 +50,8 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//RegularState">
-      <genOperations ecoreOperation="statesml.ecore#//RegularState/execute">
-        <genParameters ecoreParameter="statesml.ecore#//RegularState/execute/functionCall"/>
-      </genOperations>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statesml.ecore#//RegularState/calls"/>
+      <genOperations ecoreOperation="statesml.ecore#//RegularState/execFunctionsSequential"/>
     </genClasses>
     <genClasses ecoreClass="statesml.ecore#//Constant"/>
     <genClasses ecoreClass="statesml.ecore#//NewEClass21"/>
@@ -78,6 +77,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//KeyValuePair/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statesml.ecore#//KeyValuePair/value"/>
     </genClasses>
-    <genClasses ecoreClass="statesml.ecore#//SystemUnitLibrary"/>
+    <genClasses ecoreClass="statesml.ecore#//SystemUnitLibrary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statesml.ecore#//SystemUnitLibrary/unitCollection"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
